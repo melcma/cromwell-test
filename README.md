@@ -6,6 +6,8 @@
 Client: [http://localhost:8014](http://localhost:8014)
 Backend: [http://localhost:8015](http://localhost:8015)
 
+Test with credentials: username/password or test/test or admin/123, registration works too
+
 Endpoints:<br>
 http://localhost:8015/api/login (POST)<br>
 http://localhost:8015/api/register (POST)
