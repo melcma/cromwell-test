@@ -17,6 +17,21 @@ function alert(state = {}, action) {
                 ...state,
                 alert: undefined,
             }
+        case 'REGISTER_SUCCESS':
+            return {
+                ...state,
+                alertRegister: 'success'
+            };
+        case 'REGISTER_FAIL':
+            return {
+                ...state,
+                alertRegister: 'error'
+            }
+        case 'REGISTER_CLEAR':
+            return {
+                ...state,
+                alertRegister: undefined,
+            }
         default:
             return state;
     }
