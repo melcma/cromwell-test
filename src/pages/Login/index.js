@@ -1,10 +1,11 @@
 import React from 'react';
-import { Grid, Header } from 'semantic-ui-react';
-import { Button } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import { Button, Grid, Header } from 'semantic-ui-react';
 
 import LoginForm from '../../components/LoginForm'
+import { authSuccess, authFail, authClear } from '../../app/actions';
 
-function Login() {
+function Login({ dispatch, authStatus }) {
     function handleLogin(e) {
         const formData = new FormData(e.target);
 
@@ -13,13 +14,27 @@ function Login() {
             headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
             body: new URLSearchParams(formData),
         })
+        .then(res => {
+            if (res.ok && res.status === 200) {
+                return dispatch(authSuccess());
+            }
+
+            return dispatch(authFail());
+        })
+        .catch(() => {
+            return dispatch(authFail());
+        })
+    }
+
+    function clearForm() {
+        dispatch(authClear());
     }
 
     return (
         <Grid textAlign='center' verticalAlign='middle' style={{ height: '100vh' }}>
             <Grid.Column style={{ maxWidth: 450 }}>
                 <Header as='h2' color='blue' textAlign='center'>Log in</Header>
-                <LoginForm>
+                <LoginForm onSubmit={handleLogin} onChange={clearForm} authStatus={authStatus.alert}>
                     <Button type='submit'
                         fluid
                         size='large'
@@ -32,4 +47,10 @@ function Login() {
     )
 }
 
-export default Login;
+const mapStateToProps = state => {
+    return {
+        authStatus: state.alert
+    }
+}
+
+export default connect(mapStateToProps)(Login);
