@@ -1,19 +1,19 @@
 import React from 'react';
 import { Button, Form, Message, Segment } from 'semantic-ui-react';
 
-function LoginForm({ authStatus, children, onChange, onSubmit }) {
-    function displayMessage() {
-        if (authStatus === 'success') {
-            return { success: true }
-        };
-
-        if (authStatus === 'error') {
-            return { error: true };
-        }
+export function displayMessage(status) {
+    if (status === 'success') {
+        return { success: true }
     };
 
+    if (status === 'error') {
+        return { error: true };
+    }
+};
+
+function LoginForm({ authStatus, children, onChange, onSubmit }) {
     return (
-        <Form size='large' onSubmit={onSubmit} onChange={onChange} {...(displayMessage())}>
+        <Form size='large' onSubmit={onSubmit} onChange={onChange} {...(displayMessage(authStatus))}>
             <Segment stacked>
                 <Form.Field>
                     <Form.Input

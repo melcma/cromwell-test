@@ -6,7 +6,6 @@ import LoginForm from '../../components/LoginForm'
 import { authClear, authenticate } from '../../app/actions';
 
 function Login({ authenticate, authStatus, authClear }) {
-    
     function handleLogin(e) {
         const formData = new FormData(e.target);
         
