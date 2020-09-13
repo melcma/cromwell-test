@@ -11,9 +11,9 @@ export function displayMessage(status) {
     }
 };
 
-function LoginForm({ loginStatus, children, onChange, onSubmit }) {
+function LoginForm({ status, children, onChange, onSubmit }) {
     return (
-        <Form size='large' onSubmit={onSubmit} onChange={onChange} {...(displayMessage(loginStatus))}>
+        <Form size='large' onSubmit={onSubmit} onChange={onChange} {...(displayMessage(status))}>
             <Segment stacked>
                 <Form.Field>
                     <Form.Input

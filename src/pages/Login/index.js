@@ -21,7 +21,7 @@ function Login({ login, loginStatus, loginClear }) {
         <Grid textAlign='center' verticalAlign='middle' style={{ height: '100vh' }}>
             <Grid.Column style={{ maxWidth: 450 }}>
                 <Header as='h2' color='blue' textAlign='center'>Log in</Header>
-                <LoginForm onSubmit={handleLogin} onChange={clearForm} loginStatus={loginStatus.login}>
+                <LoginForm onSubmit={handleLogin} onChange={clearForm} status={loginStatus.status}>
                     <Link to='/register'>
                         <Button type='submit'
                             fluid

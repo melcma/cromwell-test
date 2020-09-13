@@ -21,7 +21,7 @@ function Register({ register, registerStatus, registerClear }) {
         <Grid textAlign='center' verticalAlign='middle' style={{ height: '100vh' }}>
             <Grid.Column style={{ maxWidth: 450 }}>
                 <Header as='h2' color='blue' textAlign='center'>Sign up</Header>
-                <RegisterForm onSubmit={handleRegister} onChange={clearForm} registerStatus={registerStatus.alertRegister}>
+                <RegisterForm onSubmit={handleRegister} onChange={clearForm} status={registerStatus.status}>
                     <Link to='/'>
                         <Button type='submit'
                             fluid

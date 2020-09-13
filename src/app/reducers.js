@@ -5,17 +5,17 @@ function login(state = {}, action) {
         case 'LOGIN_SUCCESS':
             return {
                 ...state,
-                login: 'success'
+                status: 'success'
             };
         case 'LOGIN_FAIL':
             return {
                 ...state,
-                login: 'error'
+                status: 'error'
             }
         case 'LOGIN_CLEAR':
             return {
                 ...state,
-                login: undefined,
+                status: undefined,
             }
         default:
             return state;
@@ -27,17 +27,17 @@ function register(state = {}, action) {
         case 'REGISTER_SUCCESS':
             return {
                 ...state,
-                alertRegister: 'success'
+                status: 'success'
             };
         case 'REGISTER_FAIL':
             return {
                 ...state,
-                alertRegister: 'error'
+                status: 'error'
             }
         case 'REGISTER_CLEAR':
             return {
                 ...state,
-                alertRegister: undefined,
+                status: undefined,
             }
         default:
             return state;

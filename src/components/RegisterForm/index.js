@@ -11,9 +11,9 @@ export function displayMessage(status) {
     }
 };
 
-function RegisterForm({ registerStatus, children, onChange, onSubmit }) {
+function RegisterForm({ status, children, onChange, onSubmit }) {
     return (
-        <Form size='large' onSubmit={onSubmit} onChange={onChange} {...(displayMessage(registerStatus))}>
+        <Form size='large' onSubmit={onSubmit} onChange={onChange} {...(displayMessage(status))}>
             <Segment stacked>
                 <Form.Field>
                     <Form.Input
