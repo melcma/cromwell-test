@@ -4,27 +4,27 @@ import { shallow, mount } from 'enzyme';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import store from '../../app/store';
-import Login from '../../pages/Login';
-import LoginForm from '../../components/LoginForm';
+import Register from '../../pages/Register';
+import RegisterForm from '../../components/RegisterForm';
 
 it('renders without crashing', () => {
     shallow(
     <Provider store={store}>
         <Router>
-            <Login />
+            <Register />
         </Router>
     </Provider>);
 })
 
-describe('<Login/>', () => {
-    it('renders with <LoginForm /> children', () => {
+describe('<Register/>', () => {
+    it('renders with <RegisterForm /> children', () => {
         const component = mount(
             <Provider store={store}>
                 <Router>
-                    <Login />
+                    <Register />
                 </Router>
             </Provider>
         );
-        expect(component.find(LoginForm)).toHaveLength(1);
+        expect(component.find(RegisterForm)).toHaveLength(1);
     })
 });

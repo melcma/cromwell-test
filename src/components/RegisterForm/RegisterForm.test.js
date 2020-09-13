@@ -3,25 +3,25 @@ import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 
 import store from '../../app/store';
-import LoginForm, { displayMessage } from '.';
+import RegisterForm, { displayMessage } from '.';
 
-describe('<LoginForm/>', () => {
-    it('renders with error message if loginStatus is an error', () => {
-        const component = mount(<Provider store={store}><LoginForm loginStatus='error' /></Provider>);
+describe('<RegisterForm/>', () => {
+    it('renders with error message if registerStatus is an error', () => {
+        const component = mount(<Provider store={store}><RegisterForm registerStatus='error' /></Provider>);
     
         expect(component.find('form.error .message.error')).toHaveLength(1);
         expect(component.find('form.success .message.success')).toHaveLength(0);
     })
     
-    it('renders with success message if loginStatus is a success', () => {
-        const component = mount(<Provider store={store}><LoginForm loginStatus='success' /></Provider>);
+    it('renders with success message if registerStatus is a success', () => {
+        const component = mount(<Provider store={store}><RegisterForm registerStatus='success' /></Provider>);
     
         expect(component.find('form.success .message.success')).toHaveLength(1);
         expect(component.find('form.error .message.error')).toHaveLength(0);
     })
 })
 
-describe('LoginForm helper functions', () => {
+describe('RegisterForm helper functions', () => {
     it('function displayMessage returns success object', () => {
         const result = displayMessage('success');
     
