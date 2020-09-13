@@ -1,13 +1,13 @@
 import {
-    AUTH_SUCCESS,
-    AUTH_FAIL,
-    AUTH_CLEAR,
+    LOGIN_SUCCESS,
+    LOGIN_FAIL,
+    LOGIN_CLEAR,
     REGISTER_SUCCESS,
     REGISTER_FAIL,
     REGISTER_CLEAR
 } from './types';
 
-function authenticate(formData) {
+function login(formData) {
     return dispatch => {
         fetch('http://localhost:8015/api/login', {
             method: 'POST',
@@ -16,13 +16,13 @@ function authenticate(formData) {
         })
         .then(res => {
             if (res.ok && res.status === 200) {
-                return dispatch(authSuccess());
+                return dispatch(loginSuccess());
             }
 
-            return dispatch(authFail());
+            return dispatch(loginFail());
         })
         .catch(() => {
-            return dispatch(authFail());
+            return dispatch(loginFail());
         })
     }
 }
@@ -47,16 +47,16 @@ function register(formData) {
     }
 }
 
-const authSuccess = () => ({
-    type: AUTH_SUCCESS
+const loginSuccess = () => ({
+    type: LOGIN_SUCCESS
 });
 
-const authFail = () => ({
-    type: AUTH_FAIL
+const loginFail = () => ({
+    type: LOGIN_FAIL
 })
 
-const authClear = () => ({
-    type: AUTH_CLEAR
+const loginClear = () => ({
+    type: LOGIN_CLEAR
 })
 
 const registerSuccess = () => ({
@@ -72,11 +72,11 @@ const registerClear = () => ({
 })
 
 export {
-    authenticate,
+    login,
     register,
-    authSuccess,
-    authFail,
-    authClear,
+    loginSuccess,
+    loginFail,
+    loginClear,
     registerSuccess,
     registerFail,
     registerClear

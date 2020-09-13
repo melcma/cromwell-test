@@ -1,22 +1,29 @@
 import { combineReducers } from 'redux';
 
-function alert(state = {}, action) {
+function login(state = {}, action) {
     switch (action.type) {
-        case 'AUTH_SUCCESS':
+        case 'LOGIN_SUCCESS':
             return {
                 ...state,
-                alert: 'success'
+                login: 'success'
             };
-        case 'AUTH_FAIL':
+        case 'LOGIN_FAIL':
             return {
                 ...state,
-                alert: 'error'
+                login: 'error'
             }
-        case 'AUTH_CLEAR':
+        case 'LOGIN_CLEAR':
             return {
                 ...state,
-                alert: undefined,
+                login: undefined,
             }
+        default:
+            return state;
+    }
+}
+
+function register(state = {}, action) {
+    switch (action.type) {
         case 'REGISTER_SUCCESS':
             return {
                 ...state,
@@ -38,7 +45,8 @@ function alert(state = {}, action) {
 }
 
 const reducers = combineReducers({
-    alert
+    login,
+    register
 });
 
 export default reducers;

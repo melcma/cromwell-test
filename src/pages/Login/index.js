@@ -4,24 +4,24 @@ import { Button, Grid, Header } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 import LoginForm from '../../components/LoginForm'
-import { authClear, authenticate } from '../../app/actions';
+import { loginClear, login } from '../../app/actions';
 
-function Login({ authenticate, authStatus, authClear }) {
+function Login({ login, loginStatus, loginClear }) {
     function handleLogin(e) {
         const formData = new FormData(e.target);
         
-        authenticate(formData);
+        login(formData);
     }
 
     function clearForm() {
-        authClear();
+        loginClear();
     }
 
     return (
         <Grid textAlign='center' verticalAlign='middle' style={{ height: '100vh' }}>
             <Grid.Column style={{ maxWidth: 450 }}>
                 <Header as='h2' color='blue' textAlign='center'>Log in</Header>
-                <LoginForm onSubmit={handleLogin} onChange={clearForm} authStatus={authStatus.alert}>
+                <LoginForm onSubmit={handleLogin} onChange={clearForm} loginStatus={loginStatus.login}>
                     <Link to='/register'>
                         <Button type='submit'
                             fluid
@@ -38,14 +38,14 @@ function Login({ authenticate, authStatus, authClear }) {
 
 const mapStateToProps = state => {
     return {
-        authStatus: state.alert
+        loginStatus: state.login
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        authenticate: (data) => dispatch(authenticate(data)),
-        authClear: () => dispatch(authClear())
+        login: (data) => dispatch(login(data)),
+        loginClear: () => dispatch(loginClear())
     }
 }
 

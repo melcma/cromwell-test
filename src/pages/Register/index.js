@@ -38,7 +38,7 @@ function Register({ register, registerStatus, registerClear }) {
 
 const mapStateToProps = state => {
     return {
-        registerStatus: state.alert
+        registerStatus: state.register
     }
 }
 
