@@ -68,6 +68,6 @@ app.post('/api/login', loginFormValidator, (req, res) => {
             }
         })
     })
-})
+});
 
 app.listen(8015, () => { console.log('Server listening on port 8015') });
