@@ -19,7 +19,13 @@ const database = monk(`${DB_PROTOCOL}${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_C
 
 
 const app = express();
-const allowedDomains = ['localhost', 'http://localhost:8014', 'http://adrianpiwowarczyk.com'];
+const allowedDomains = [
+    'localhost',
+    'http://localhost:8014',
+    'http://www.adrianpiwowarczyk.com',
+    'http://www.adrianpiwowarczyk.com:8015',
+    'http://www.adrianpiwowarczyk.com:8016'
+];
 
 app.use(bodyParser.urlencoded({ extended: true }),);
 
