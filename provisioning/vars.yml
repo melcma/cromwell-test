@@ -1,0 +1,8 @@
+---
+applications:
+  cromwell-test-client:
+    image: registry.gitlab.com/melcma/cromwell-test/client:latest
+    port: 8015
+  cromwell-test-api:
+    image: registry.gitlab.com/melcma/cromwell-test/api:latest
+    port: 8016

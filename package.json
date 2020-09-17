@@ -24,9 +24,10 @@
     "semantic-ui-react": "^1.2.1"
   },
   "scripts": {
-    "start": "concurrently \"yarn start:server\" \"yarn start:client\"",
-    "start:client": "PORT=8014 react-scripts start",
-    "start:server": "PORT=8015 nodemon server/App",
+    "start": "node ./App",
+    "dev": "concurrently \"yarn dev:server\" \"yarn dev:client\"",
+    "dev:client": "PORT=8014 react-scripts start",
+    "dev:server": "PORT=8015 nodemon server/App",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
