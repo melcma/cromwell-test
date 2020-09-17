@@ -9,7 +9,7 @@ import {
 
 function login(formData) {
     return dispatch => {
-        fetch('http://localhost:8015/api/login', {
+        fetch('http://www.adrianpiwowarczyk.com:8016/api/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
             body: new URLSearchParams(formData),
@@ -29,7 +29,7 @@ function login(formData) {
 
 function register(formData) {
     return dispatch => {
-        fetch('http://localhost:8015/api/register', {
+        fetch('http://www.adrianpiwowarczyk.com:8016/api/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
             body: new URLSearchParams(formData),
