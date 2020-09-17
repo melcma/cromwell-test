@@ -41,6 +41,6 @@ deploy:
   - eval "$(ssh-agent -s)"
   - ssh-add ~/.ssh/digitalocean
   script:
-  - echo "$ENV_CONFIG" > .env
+  - echo "$ENV_CONFIG" | base64 -d > .env
   - cd provisioning
   - ansible-playbook -i "$SSH_IP", provision.yml -u "$SSH_USER" --ssh-extra-args='-o StrictHostKeyChecking=no'
