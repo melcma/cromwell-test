@@ -25,6 +25,7 @@ release:
   before_script:
   - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
   script:
+  - echo "$ENV_CONFIG" | base64 -d > "server/.env"
   - docker build -t registry.gitlab.com/melcma/cromwell-test/client -f Dockerfile .
   - docker build -t registry.gitlab.com/melcma/cromwell-test/api -f Dockerfile-api .
   - docker push registry.gitlab.com/melcma/cromwell-test/client
@@ -41,6 +42,5 @@ deploy:
   - eval "$(ssh-agent -s)"
   - ssh-add ~/.ssh/digitalocean
   script:
-  - echo "$ENV_CONFIG" | base64 -d > .env
   - cd provisioning
   - ansible-playbook -i "$SSH_IP", provision.yml -u "$SSH_USER" --ssh-extra-args='-o StrictHostKeyChecking=no'
