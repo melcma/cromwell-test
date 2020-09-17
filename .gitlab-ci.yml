@@ -1,6 +1,5 @@
 stages:
 - build
-- test
 - release
 - deploy
 
@@ -14,12 +13,6 @@ build:
     paths:
     - build
     - node_modules
-
-test-client:
-  stage: test
-  image: node:10-alpine
-  script:
-  - yarn run test
 
 release:
   stage: release
